@@ -74,3 +74,11 @@ linked_list<some_object*>* ll2 = new linked_list<some_object*>();
 //     delete ll;
 //     return 0;
 // }
+
+#include "./linked_list.h"
+#include <iostream>
+
+int main() {
+    linked_list<int> l;
+    std::cout << l.size() << std::endl;
+}
