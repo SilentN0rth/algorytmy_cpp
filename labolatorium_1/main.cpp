@@ -1,15 +1,5 @@
 // #include <iostream>
-// #include "some_object.h"
-
-// int some_objects_cmp(some_object* so1, some_object* so2){
-//     int diff = so1 -> field_1 - so2->field_1;
-//     if(diff != 0)
-//         return diff;
-//     return so1->field_2 - so2->field_2;
-// }
-// int main(){
-//     return 0;
-// }
+#include "some_object.h"
 
 
 // #include <time.h>
@@ -75,7 +65,6 @@ linked_list<some_object*>* ll2 = new linked_list<some_object*>();
 //     return 0;
 // }
 
-#include "./linked_list.h"
 #include <string>
 
 std::string intToString(int whatever){
@@ -86,45 +75,6 @@ std::string intToString(int whatever){
 int main() {
 
 
-    LinkedList<int> * ll = new LinkedList<int>();
-
-    ll->addBegin(5);
-    ll->addBegin(8);
-    ll->addBegin(10);
-    ll->addBegin(101);
-
-    ll->showFromBegin();
-    cout << ll ->toString(intToString) << endl;
-    ll->removeBeginElement();
-    cout << ll ->toString(intToString) << endl;
-    ll->removeLastElement();
-    cout << ll ->toString(intToString) << endl;
-    ll->clearList();
-    cout << ll ->toString(intToString) << endl;
-    ll->addEnd(1);
-    ll->addEnd(10);
-    ll->addEnd(101);
-    ll->addBegin(111);
-    cout << ll ->toString(intToString) << endl;
-    ll->setAt(1, 11101001);
-    cout << ll ->toString(intToString) << endl;
-    cout << *ll->getAt(1) << endl;
-    cout << ll->getAt(1) << endl;
-    cout << ll ->toString(intToString) << endl;
-    cout << ll->getAt(121) << endl;
-    ll->findAndRemove(111, intCmp);
-    cout << ll ->toString(intToString) << endl;
-    ll->findAndRemove(111, intCmp);
-    cout << ll->find(111, intCmp) << endl;
-    cout << ll->find(10, intCmp) << endl;
-    cout << ll ->toString(intToString) << endl;
-    ll -> clearList();
-    ll -> addSorted(10, intCmp);
-    ll -> addSorted(101, intCmp);
-    ll -> addSorted(10511, intCmp);
-    ll -> addSorted(10, intCmp);
-
-    cout << ll -> toString(intToString) << endl;
-    delete ll;
+    main_tests();
 
 }

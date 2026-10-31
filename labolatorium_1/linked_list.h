@@ -165,19 +165,19 @@ public:
     }
 
     // zad k)
-    string toString(DataToString printer = nullptr) {
+    string toString(int maxItems = 10, DataToString printer = nullptr) {
         string res = "(list, list_size=" + to_string(size) + "): ";
         
         Node<T> * traversal = head;
         int ind = 0;
 
-        while(traversal != nullptr){
+        while(traversal != nullptr && ind < maxItems){
             if(ind > 0) res += ", ";
             res += printer(traversal->value);
             traversal = traversal->next;
             ind++;
         }
-
+        if(size > maxItems) res += ", ...";
         return res;
     }
 private:
