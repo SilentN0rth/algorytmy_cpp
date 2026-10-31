@@ -91,3 +91,7 @@ int main() {
     }
     delete ll;
 }
+
+
+// KOD ROWNIEZ NA GITHUB:
+// https://github.com/SilentN0rth/algorytmy_cpp
