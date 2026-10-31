@@ -78,7 +78,17 @@ linked_list<some_object*>* ll2 = new linked_list<some_object*>();
 #include "./linked_list.h"
 #include <iostream>
 
+
 int main() {
-    linked_list<int> l;
-    std::cout << l.size() << std::endl;
+
+    LinkedList * ll = new LinkedList();
+
+    ll->addBegin(5);
+    ll->addBegin(8);
+    ll->addBegin(10);
+
+    ll->showFromBegin();
+
+    delete ll;
+
 }
