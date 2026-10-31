@@ -76,18 +76,24 @@ linked_list<some_object*>* ll2 = new linked_list<some_object*>();
 // }
 
 #include "./linked_list.h"
-#include <iostream>
+#include <string>
 
+std::string intToString(int whatever){
+    return std::to_string(whatever);
+} 
 
 int main() {
 
-    LinkedList * ll = new LinkedList();
+
+    LinkedList<int> * ll = new LinkedList<int>();
 
     ll->addBegin(5);
     ll->addBegin(8);
     ll->addBegin(10);
+    ll->addBegin(101);
 
     ll->showFromBegin();
+    cout << ll ->toString(intToString) << endl;
 
     delete ll;
 

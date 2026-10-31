@@ -1,26 +1,32 @@
 #include <iostream>
+#include <string>
 
 using namespace std;
 
+template <typename T>
 class Node {
 
 public:
-    Node * next;
-    Node * prev;
-    int value;
+    Node<T> * next;
+    Node<T> * prev;
+    T value;
 
-    Node(int value) {
+    Node(T value) {
         this->next = nullptr;
         this->prev = nullptr;
         this->value = value;
     }
 };
 
+template <typename T>
 class LinkedList {
 
 public:
-    Node * head;
-    Node * tail;
+    typedef int (*DataCmp)(T,T);
+    typedef string (*DataToString)(T);
+
+    Node<T> * head;
+    Node<T> * tail;
     int size;
 
     LinkedList() {
@@ -33,9 +39,9 @@ public:
         //clearList
     }
 
-    void addBegin(int value) {
+    void addBegin(T value) {
 
-        Node * newNode = new Node(value);
+        Node<T> * newNode = new Node<T>(value);
 
         if (head == nullptr) {
             // nie ma elementów w liście
@@ -53,16 +59,32 @@ public:
 
     void showFromBegin() {
 
-        Node * traversal = head;
+        Node<T> * traversal = head;
 
         while (traversal != nullptr) {
 
             cout << traversal->value << endl;
             traversal = traversal->next;
         }
-
-
     }
+
+    // zad k)
+    string toString(DataToString printer = nullptr) {
+        string res = "(list, list_size=" + to_string(size) + "): ";
+        
+        Node<T> * traversal = head;
+        int ind = 0;
+
+        while(traversal != nullptr){
+            if(ind > 0) res += ", ";
+            res += printer(traversal->value);
+            traversal = traversal->next;
+            ind++;
+        }
+
+        return res;
+    }
+
 
 };
 
