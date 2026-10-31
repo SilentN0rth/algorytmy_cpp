@@ -22,7 +22,7 @@ template <typename T>
 class LinkedList {
 
 public:
-    typedef int (*DataCmp)(T,T);
+    typedef int (*DataCompare)(T,T);
     typedef string (*DataToString)(T);
 
     Node<T> * head;
@@ -112,6 +112,27 @@ public:
         if(freeOldData) deleteValue(node -> value);
         node -> value = value;
         return true;
+    }
+    // zad g)
+    Node<T> * find(T target, DataCompare compare){
+        Node<T> * traversal = head;
+        while(traversal != nullptr) {
+            if (compare(traversal->value, target) == 0) { 
+                return traversal;
+            }
+
+            traversal = traversal->next;
+        }
+        return nullptr;
+    }
+
+    // zad h)
+    bool findAndRemove(T target, DataCompare compare, bool free = false){
+        Node<T> * node = find(target, compare);
+        if(node == nullptr) return false;
+        killNode(node, free);
+        return true;
+
     }
     // zad j)
     void clearList(bool isOk = false){

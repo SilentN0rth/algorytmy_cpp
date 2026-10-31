@@ -81,6 +81,7 @@ linked_list<some_object*>* ll2 = new linked_list<some_object*>();
 std::string intToString(int whatever){
     return std::to_string(whatever);
 } 
+    int intCmp(int a, int b) { return a - b;};
 
 int main() {
 
@@ -111,9 +112,12 @@ int main() {
     cout << ll->getAt(1) << endl;
     cout << ll ->toString(intToString) << endl;
     cout << ll->getAt(121) << endl;
-
-
-
+    ll->findAndRemove(111, intCmp);
+    cout << ll ->toString(intToString) << endl;
+    ll->findAndRemove(111, intCmp);
+    cout << ll->find(111, intCmp) << endl;
+    cout << ll->find(10, intCmp) << endl;
+    cout << ll ->toString(intToString) << endl;
 
 
 
