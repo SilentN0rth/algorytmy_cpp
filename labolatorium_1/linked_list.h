@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-
+#include <type_traits>
 using namespace std;
 
 template <typename T>
@@ -39,6 +39,8 @@ public:
         //clearList
     }
 
+
+    // zad b)
     void addBegin(T value) {
 
         Node<T> * newNode = new Node<T>(value);
@@ -67,6 +69,21 @@ public:
             traversal = traversal->next;
         }
     }
+    // zad c)
+    bool removeLastElement(bool isOk = false){
+        if (tail == nullptr) return false;
+        
+        killNode(tail, isOk);
+        return true;
+    }
+    
+    // zad d)
+    bool removeBeginElement(bool isOk = false) {
+        if (head == nullptr) return false;
+
+        killNode(head, isOk);
+        return true;
+    }
 
     // zad k)
     string toString(DataToString printer = nullptr) {
@@ -84,8 +101,19 @@ public:
 
         return res;
     }
+private:
+    void deleteValue(T & value){
+        if constexpr (is_pointer<T>::value) delete value;
+    }
 
+    void killNode(Node<T> * node, bool isOk){
+        (node->prev != nullptr) ? (node -> prev -> next = node->next) : (head = node -> next);
 
+        (node -> next != nullptr) ? (node->next->prev = node->prev) : (tail = node->prev);
+
+        if(isOk) deleteValue(node->value);
+        delete node;
+    }
 };
 
 

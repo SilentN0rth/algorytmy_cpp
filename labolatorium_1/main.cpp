@@ -94,6 +94,10 @@ int main() {
 
     ll->showFromBegin();
     cout << ll ->toString(intToString) << endl;
+    ll->removeBeginElement();
+    cout << ll ->toString(intToString) << endl;
+    ll->removeLastElement();
+    cout << ll ->toString(intToString) << endl;
 
     delete ll;
 
