@@ -98,7 +98,21 @@ public:
         killNode(head, isOk);
         return true;
     }
+    // zad e)
+    T * getAt(int index){
+        Node<T> * node = nodeAt(index);
+        if(node == nullptr) return nullptr;
+        return &node -> value;
+    }
 
+    // zad f)
+    bool setAt(int index, T value, bool freeOldData = false){
+        Node<T> * node = nodeAt(index);  
+        if(node == nullptr) return false;
+        if(freeOldData) deleteValue(node -> value);
+        node -> value = value;
+        return true;
+    }
     // zad j)
     void clearList(bool isOk = false){
         while (head != nullptr) killNode(head, isOk);
@@ -133,6 +147,22 @@ private:
         if(isOk) deleteValue(node->value);
         delete node;
         size--;
+    }
+    Node<T> * nodeAt(int index){
+        if(index < 0 || index > size) return nullptr;
+        Node<T> * traversal;
+        if(index < size / 2){
+            traversal = head;
+            for(int i = 0; i < index; i++){
+                traversal = traversal->next;
+            }
+        } else {
+            traversal = tail;
+            for(int i = size - 1; i > index; i--){
+                traversal = traversal -> prev;
+            }
+        }
+        return traversal;
     }
 };
 

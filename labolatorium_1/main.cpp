@@ -105,7 +105,13 @@ int main() {
     ll->addEnd(101);
     ll->addBegin(111);
     cout << ll ->toString(intToString) << endl;
-    
+    ll->setAt(1, 11101001);
+    cout << ll ->toString(intToString) << endl;
+    cout << *ll->getAt(1) << endl;
+    cout << ll->getAt(1) << endl;
+    cout << ll ->toString(intToString) << endl;
+    cout << ll->getAt(121) << endl;
+
 
 
 
