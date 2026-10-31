@@ -134,6 +134,31 @@ public:
         return true;
 
     }
+    // zad i)
+
+    void addSorted(T value, DataCompare compare){
+        Node<T> * traversal = head;
+        while(traversal != nullptr && compare(traversal->value, value) <= 0){
+            traversal = traversal -> next;
+        }
+
+        if(traversal == nullptr){
+            // sprwadz czy dodaje na koniec
+            addEnd(value);
+        } else if (traversal -> prev == nullptr){
+            addBegin(value);
+            // czy na poczatek
+        } else {
+            Node<T> * newNode = new Node<T>(value);
+            newNode->prev = traversal->prev;
+            newNode->next = traversal;
+            traversal->prev->next = newNode;
+            traversal->prev = newNode;
+
+            size++;
+        }
+    }
+
     // zad j)
     void clearList(bool isOk = false){
         while (head != nullptr) killNode(head, isOk);

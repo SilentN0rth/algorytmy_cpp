@@ -118,9 +118,13 @@ int main() {
     cout << ll->find(111, intCmp) << endl;
     cout << ll->find(10, intCmp) << endl;
     cout << ll ->toString(intToString) << endl;
+    ll -> clearList();
+    ll -> addSorted(10, intCmp);
+    ll -> addSorted(101, intCmp);
+    ll -> addSorted(10511, intCmp);
+    ll -> addSorted(10, intCmp);
 
-
-
+    cout << ll -> toString(intToString) << endl;
     delete ll;
 
 }
