@@ -34,11 +34,25 @@ public:
         this->tail = nullptr;
         this->size = 0;
     }
+    LinkedList(const LinkedList &) = delete;
+    LinkedList & operator=(const LinkedList &) = delete;
 
     ~LinkedList() {
-        //clearList
+        clearList();
     }
+    // zad a)
+    void addEnd(T value) {
+        Node<T> * newNode = new Node<T>(value);
+        if(tail == nullptr) {
+            head = tail = newNode;
+        } else {
+            newNode -> prev = tail;
+            tail -> next = newNode;
+            tail = newNode;
+        }
 
+        size++;
+    }
 
     // zad b)
     void addBegin(T value) {
@@ -85,6 +99,11 @@ public:
         return true;
     }
 
+    // zad j)
+    void clearList(bool isOk = false){
+        while (head != nullptr) killNode(head, isOk);
+    }
+
     // zad k)
     string toString(DataToString printer = nullptr) {
         string res = "(list, list_size=" + to_string(size) + "): ";
@@ -113,6 +132,7 @@ private:
 
         if(isOk) deleteValue(node->value);
         delete node;
+        size--;
     }
 };
 

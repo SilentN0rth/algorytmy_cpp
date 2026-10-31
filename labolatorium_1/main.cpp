@@ -98,6 +98,18 @@ int main() {
     cout << ll ->toString(intToString) << endl;
     ll->removeLastElement();
     cout << ll ->toString(intToString) << endl;
+    ll->clearList();
+    cout << ll ->toString(intToString) << endl;
+    ll->addEnd(1);
+    ll->addEnd(10);
+    ll->addEnd(101);
+    ll->addBegin(111);
+    cout << ll ->toString(intToString) << endl;
+    
+
+
+
+
 
     delete ll;
 
